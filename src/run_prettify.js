@@ -227,7 +227,7 @@ var IN_GLOBAL_SCOPE = false;
   // This only works if this script is loaded via https : something
   // over which we exercise no control.
   var LOADER_BASE_URL =
-     'https://cdn.rawgit.com/google/code-prettify/master/loader';
+     'https://cdn.rawgit.com/vladyoselsky/code-prettify/master/loader';
 
   for (var i = 0, n = langs.length; i < n; ++i) (function (lang) {
     var script = doc.createElement("script");
@@ -452,6 +452,21 @@ var IN_GLOBAL_SCOPE = false;
        * @const
        */
       var PR_KEYWORD = 'kwd';
+	  /**
+       * token style for a keyword
+       * @const
+       */
+      var PR_FUNCTION = 'fnc';
+	  /**
+       * token style for a keyword
+       * @const
+       */
+      var PR_SQLOPERATOR = 'opr';
+	  /**
+       * token style for a keyword
+       * @const
+       */
+      var PR_SQLDATATYPE = 'dat';
       /**
        * token style for a comment
        * @const
@@ -1928,6 +1943,9 @@ var IN_GLOBAL_SCOPE = false;
             'PR_COMMENT': PR_COMMENT,
             'PR_DECLARATION': PR_DECLARATION,
             'PR_KEYWORD': PR_KEYWORD,
+			'PR_FUNCTION': PR_FUNCTION,
+			'PR_SQLOPERATOR': PR_SQLOPERATOR,
+			'PR_SQLDATATYPE': PR_SQLDATATYPE,
             'PR_LITERAL': PR_LITERAL,
             'PR_NOCODE': PR_NOCODE,
             'PR_PLAIN': PR_PLAIN,
