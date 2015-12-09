@@ -15,7 +15,6 @@
  * limitations under the License.
  */
 
-
 /**
  * @fileoverview
  * some functions for browser-side pretty printing of code contained in html.
@@ -60,9 +59,27 @@
 
 
 /**
- * Split {@code prettyPrint} into multiple timeouts so as not to interfere with
- * UI events.
- * If set to {@code false}, {@code prettyPrint()} is synchronous.
+ * {@type !{
+ *   'createSimpleLexer': function (Array, Array): (function (JobT)),
+ *   'registerLangHandler': function (function (JobT), Array.<string>),
+ *   'PR_ATTRIB_NAME': string,
+ *   'PR_ATTRIB_NAME': string,
+ *   'PR_ATTRIB_VALUE': string,
+ *   'PR_COMMENT': string,
+ *   'PR_DECLARATION': string,
+ *   'PR_KEYWORD': string,
+ *   'PR_LITERAL': string,
+ *   'PR_NOCODE': string,
+ *   'PR_PLAIN': string,
+ *   'PR_PUNCTUATION': string,
+ *   'PR_SOURCE': string,
+ *   'PR_STRING': string,
+ *   'PR_TAG': string,
+ *   'PR_TYPE': string,
+ *   'prettyPrintOne': function (string, string, number|boolean),
+ *   'prettyPrint': function (?function, ?(HTMLElement|HTMLDocument))
+ * }}
+ * @const
  */
 /**
 * @typedef {!Array.<number|string>}
@@ -115,6 +132,13 @@ var SourceSpansT;
 /** @define {boolean} */
 var IN_GLOBAL_SCOPE = false;
 
+var PR;
+
+/**
+ * Split {@code prettyPrint} into multiple timeouts so as not to interfere with
+ * UI events.
+ * If set to {@code false}, {@code prettyPrint()} is synchronous.
+ */
 window['PR_SHOULD_USE_CONTINUATION'] = true;
 
 /**
@@ -138,13 +162,14 @@ var prettyPrintOne;
  */
 var prettyPrint;
 
+
 (function () {
   var win = window;
   // Keyword lists for various languages.
   // We use things that coerce to strings to make them compact when minified
   // and to defeat aggressive optimizers that fold large string constants.
   var FLOW_CONTROL_KEYWORDS = ["break,continue,do,else,for,if,return,while"];
-  var C_KEYWORDS = [FLOW_CONTROL_KEYWORDS,"auto,case,char,const,default," + 
+  var C_KEYWORDS = [FLOW_CONTROL_KEYWORDS,"auto,case,char,const,default," +
       "double,enum,extern,float,goto,inline,int,long,register,short,signed," +
       "sizeof,static,struct,switch,typedef,union,unsigned,void,volatile"];
   var COMMON_KEYWORDS = [C_KEYWORDS,"catch,class,delete,false,import," +
@@ -971,7 +996,7 @@ var prettyPrint;
       // which are the following plus space, tab, and newline: { }
       // | & $ ; < >
       // ...
-      
+
       // A word beginning with # causes that word and all remaining
       // characters on that line to be ignored.
 
@@ -1645,7 +1670,7 @@ var prettyPrint;
               sourceCode: null,
               basePos: null,
               spans: null,
-              decorations: null              
+              decorations: null
             };
             applyDecorator(prettyPrintingJob);
           }
@@ -1705,9 +1730,10 @@ var prettyPrint;
   // whose value is an object. This helps avoid conflict with any
   // other existing JavaScript code that could have defined a define()
   // function that does not conform to the AMD API.
+  var define = win['define'];
   if (typeof define === "function" && define['amd']) {
     define("google-code-prettify", [], function () {
-      return PR; 
+      return PR;
     });
   }
 })();
