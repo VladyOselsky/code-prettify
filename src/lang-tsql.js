@@ -58,4 +58,4 @@ PR['registerLangHandler'](
          // A run of punctuation
          [PR['PR_PUNCTUATION'], /^[^\w\t\n\r \xA0\"\'][^\w\t\n\r \xA0+\-\"\']*/]
         ]),
-    ['tsql']);
+    ['tsql','mssql']);
