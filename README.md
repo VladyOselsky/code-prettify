@@ -1,18 +1,18 @@
 # Javascript code prettifier
 
-An embeddable script that makes source-code snippets in HTML prettier.
+An embeddable script that makes source-code snippets in HTML prettier. I had to change all reference URL to point to my branch for testing of features. For original code visit main project. To test this branch see more details below. Additionally all references to cdn.rawgit were replaced with rawgit to ensure that fresh version of files are served everytime.
 
-[See an example](https://rawgit.com/google/code-prettify/master/examples/quine.html)
+[See an example](https://rawgit.com/vladyoselsky/code-prettify/master/examples/quine.html)
 
 ## Setup
 
  * Include the script tag below in your document
 ```HTML
-<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+<script src="https://rawgit.com/vladyoselsky/code-prettify/master/loader/run_prettify.js"></script>
 ```
  * See [Getting Started](docs/getting_started.md) to configure that URL with
    options you need.
- * Look at the [skin gallery](https://rawgit.com/google/code-prettify/master/styles/index.html)
+ * Look at the [skin gallery](https://rawgit.com/vladyoselsky/code-prettify/master/styles/index.html)
    and pick styles that suit you.
 
 ## Usage
@@ -119,7 +119,7 @@ i.e. outside the scope of this tool.
 ### Which browsers does it work with?
 
 It's been tested with IE 6, Firefox 1.5 & 2, and Safari 2.0.4. Look at
-[the tests](https://rawgit.com/google/code-prettify/master/tests/prettify_test.html)
+[the tests](https://rawgit.com/vladyoselsky/code-prettify/master/tests/prettify_test.html)
 to see if it works in your browser.
 
 ### What's changed?
@@ -170,7 +170,7 @@ int y = bar();
 ```
 
 For a more complete example see the issue22
-[testcase](https://rawgit.com/google/code-prettify/master/tests/prettify_test.html#issue22).
+[testcase](https://rawgit.com/vladyoselsky/code-prettify/master/tests/prettify_test.html#issue22).
 
 ### I get an error message "a is not a function" or "opt_whenDone is not a function"
 
@@ -195,7 +195,7 @@ which will confuse it.
 Prettify adds `<span>` with `class`es describing the kind of code.
 You can create CSS styles to matches these classes.
 
-See the [theme gallery](https://rawgit.com/google/code-prettify/master/styles/index.html)
+See the [theme gallery](https://rawgit.com/vladyoselsky/code-prettify/master/styles/index.html)
 for examples.
 
 ### I can't add classes to my code (because it comes from Markdown, etc.)
