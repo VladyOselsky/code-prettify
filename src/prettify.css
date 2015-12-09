@@ -43,9 +43,9 @@
 @media print, projection {
   .str { color: #060 }
   .kwd { color: #006; font-weight: bold }
-  .fnc { color: #008; font-weight: bold }  /* a function*/
-  .opr { color: #008; font-weight: bold }  /* a operator */
-  .dat { color: #008; font-weight: bold }  /* a data type */
+  .fnc { color: #006; font-weight: bold }  /* a function*/
+  .opr { color: #006; font-weight: bold }  /* a operator */
+  .dat { color: #006; font-weight: bold }  /* a data type */
   .com { color: #600; font-style: italic }
   .typ { color: #404; font-weight: bold }
   .lit { color: #044 }
